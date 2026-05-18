@@ -45,7 +45,7 @@ export async function enviarEmail(destinatario, codigo = null, credenciales = nu
     }
     
     await transporter.sendMail({
-      from: 'Veterinaria SPA <etcymasetc@gmail.com>',
+      from: 'Veterinaria SPA <tugmail@gmail.com>',
       to: destinatario,
       subject,
       html
