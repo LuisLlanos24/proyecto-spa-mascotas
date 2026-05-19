@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { validateCI, validateNombre, validateEmail, validateTelefono, validateEdad, validateSexo } from '../../utils/validations';
 import ServicioManager from '../servicios/ServicioManager';
+import HorarioManager from '../servicios/HorarioManager';
 
 const API = 'http://localhost:3001/api';
 
@@ -229,6 +230,7 @@ const handleToggle2FA = async (ci, estadoActual) => {
     { id: 'inventario', label: '📦 Inventario' },
     { id: 'reportes', label: '📈 Reportes' },
     { id: 'logs', label: '📋 Auditoría' },
+    { id: 'horarios', label: '📅 Horarios' },
   ];
 
   return (
@@ -471,6 +473,7 @@ const handleToggle2FA = async (ci, estadoActual) => {
         )}
         
         {activeMenu === 'servicios' && <ServicioManager />}
+        {activeMenu === 'horarios' && <HorarioManager />}
 
         {activeMenu === 'logs' && (
           <div className="card">

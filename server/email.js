@@ -3,13 +3,13 @@ import { google } from 'googleapis';
 
 const OAuth2 = google.auth.OAuth2;
 const oauth2Client = new OAuth2(
-  'tus credenciales',          
-  'tus credenciales',      
-  'tus credenciales'
+  'credenciales_client_id',          // El que obtuviste en paso 4
+  'credenciales_client_secret',      // El que obtuviste en paso 4
+  'https://developers.google.com/oauthplayground'
 );
 
 oauth2Client.setCredentials({
-  refresh_token: 'tus credenciales'
+  refresh_token: 'credenciales_refresh_token' // El que obtuviste en paso 4
 });
 
 export async function enviarEmail(destinatario, codigo = null, credenciales = null) {
@@ -20,10 +20,10 @@ export async function enviarEmail(destinatario, codigo = null, credenciales = nu
       service: 'gmail',
       auth: {
         type: 'OAuth2',
-        user: 'tus credenciales',
-        clientId: 'tus credenciales',
-        clientSecret: 'tus credenciales',
-        refreshToken: 'tus credenciales',
+        user: 'etcymasetc@gmail.com',
+        clientId: 'credenciales_client_id',
+        clientSecret: 'credenciales_client_secret',
+        refreshToken: 'credenciales_refresh_token',
         accessToken: accessToken.token
       }
     });
@@ -45,7 +45,7 @@ export async function enviarEmail(destinatario, codigo = null, credenciales = nu
     }
     
     await transporter.sendMail({
-      from: 'Veterinaria SPA <tugmail@gmail.com>',
+      from: 'Veterinaria SPA <etcymasetc@gmail.com>',
       to: destinatario,
       subject,
       html
